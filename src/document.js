@@ -1,15 +1,19 @@
-export class Document {
-  constructor() {
+import QuestionSentence from "./questionSentence.js"
+
+export default class Document {
+  constructor(allSentences) {
+    this.allSentences = allSentences
 
   }
 
+  getAllSentences() {
+    return this.allSentences
+  }
 
+  getExclamationSentences() {}
 
-  // getSentences() {}
-  // get Exclamation
-  // get Question
-  // get All ?
+  getRegularSentences() {}
 
-
+  getQuestionSentences() {}
 
 }
