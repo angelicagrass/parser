@@ -3,7 +3,6 @@ export default class Sentence  {
     this.words = words
     this.sentence = ''
     this.index = `index ${index}: `
-    
   }
 
   toString() {
