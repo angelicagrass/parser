@@ -8,7 +8,7 @@ export const color = {
   Hidden: "\x1b[8m",
 
   FgBlack: "\x1b[30m%s\x1b[0m",
-  FgRed: "\x1b[31m%s\x1b[0m",
+  FgRed: "\x1b[31m%s",
   FgGreen: "\x1b[32m%s\x1b[0m",
   FgYellow: "\x1b[33m%s\x1b[0m",
   FgBlue: "\x1b[34m%s\x1b[0m",
@@ -23,5 +23,5 @@ export const color = {
   BgBlue: "\x1b[44m%s\x1b[0m",
   BgMagenta: "\x1b[45m%s\x1b[0m",
   BgCyan: "\x1b[46m%s\x1b[0m",
-  BgWhite: "\x1b[47m%s\x1b[0m"
+  BgWhite: "\x1b[47m%s\x1b[0m",
 }
