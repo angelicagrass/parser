@@ -10,13 +10,9 @@ export default class PrettyPrinter {
 
   colorize(){
     this.sentences.allSentences.forEach(element => {
-      if (element instanceof ExclamationSentence) {
-        console.log(color.BgMagenta, element.index + element.sentence)  
-      } else if (element instanceof RegularSentence) {
-        console.log(color.BgGreen, element.index + element.sentence)
-      } else if (element instanceof QuestionSentence) {
-        console.log(color.BgCyan, element.index + element.sentence)
-      }
+      if (element instanceof ExclamationSentence) console.log(color.BgMagenta, element.index + element.sentence)
+      else if (element instanceof RegularSentence) console.log(color.BgBlue, element.index + element.sentence)
+      else if (element instanceof QuestionSentence) console.log(color.BgCyan, element.index + element.sentence)
     })
   }
 }
