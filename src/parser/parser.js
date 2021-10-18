@@ -11,19 +11,26 @@ export default class Parser {
   }
 
   parse() {
-    this.sentences.forEach(token => {
+  this.sentences.forEach(token => {
       if (token.type === 'WORD') {
         this.tempArray.push(token.value[0])
-      } else if(token.type === 'DOT') {
-        this.createDotSentence(token)
-      } else if (token.type === 'EXCLAMATION') {
-        this.createExclamationSentence(token)
-      } else if (token.type === 'QUESTION') {
-        this.createQuestionSentence(token)
-    }
-  })
+      } else if (token.type === 'DOT' || token.type === 'EXCLAMATION' || token.type === 'QUESTION') {
+        this.createSentence(token)
+      }
+    })
     return this.allSentences
   }
+
+  createSentence(token) {
+    this.tempArray.push(token.value[0])
+    let sentence = ''
+
+    if (token.type === 'DOT') sentence = new RegularSentence(this.tempArray, this.index)
+    else if (token.type === 'EXCLAMATION') sentence = new ExclamationSentence(this.tempArray, this.index)
+    else if (token.type === 'QUESTION') sentence = new QuestionSentence(this.tempArray, this.index)
+    this.pushSentence(sentence)
+  }
+
 
   pushSentence(sentence) {
     sentence.toString()
@@ -35,24 +42,6 @@ export default class Parser {
     this.tempArray = []
     this.index++
   }
-
-  createDotSentence(token) {
-    this.tempArray.push(token.value[0])
-    const sentence = new RegularSentence(this.tempArray, this.index)
-    this.pushSentence(sentence)
-  }
-
-  createExclamationSentence(token) {
-    this.tempArray.push(token.value[0])
-    const sentence = new ExclamationSentence(this.tempArray, this.index)
-    this.pushSentence(sentence)
-  }
-
-  createQuestionSentence(token) {
-    this.tempArray.push(token.value[0])
-    const sentence = new QuestionSentence(this.tempArray, this.index)
-    this.pushSentence(sentence)
-  }
-  
 }
+
 
