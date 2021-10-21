@@ -15,10 +15,13 @@ async function read() {
 
 await read()
 
-const TheTokenizer = new Tokenizer(regex, text )
-const sentences = TheTokenizer.tokenizeTheString() // array med object resultat
+
+const TheTokenizer = new Tokenizer(regex, text)
+const sentences = TheTokenizer.tokenizeTheString()
 const parser = new Parser(sentences).parse()
 const document = new Document(parser)
+// document.getExclamationSentences()
+
 const printer = new PrettyPrinter(document)
 printer.colorize()
 
