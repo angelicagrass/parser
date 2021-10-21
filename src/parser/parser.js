@@ -1,6 +1,8 @@
 import RegularSentence from '../sentences/regularSentence.js'
 import ExclamationSentence from '../sentences/exclamationSentence.js'
 import QuestionSentence from '../sentences/questionSentence.js'
+import Document from '../document/document.js'
+import SentenceError from '../errors/sentenceError.js'
 
 export default class Parser {
   constructor(sentences) {
@@ -8,16 +10,15 @@ export default class Parser {
     this.allSentences = []
     this.tempArray = []
     this.index = 0
+
   }
 
   parse() {
   this.sentences.forEach(token => {
-      if (token.type === 'WORD') {
-        this.tempArray.push(token.value[0])
-      } else if (token.type === 'DOT' || token.type === 'EXCLAMATION' || token.type === 'QUESTION') {
-        this.createSentence(token)
-      }
+      if (token.type === 'WORD') { this.tempArray.push(token.value[0]) } 
+      else if (token.type === 'DOT' || token.type === 'EXCLAMATION' || token.type === 'QUESTION') { this.createSentence(token) }
     })
+    
     return this.allSentences
   }
 
@@ -28,9 +29,10 @@ export default class Parser {
     if (token.type === 'DOT') sentence = new RegularSentence(this.tempArray, this.index)
     else if (token.type === 'EXCLAMATION') sentence = new ExclamationSentence(this.tempArray, this.index)
     else if (token.type === 'QUESTION') sentence = new QuestionSentence(this.tempArray, this.index)
+    else throw new SentenceError()
+    
     this.pushSentence(sentence)
   }
-
 
   pushSentence(sentence) {
     sentence.toString()
