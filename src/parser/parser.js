@@ -17,6 +17,7 @@ export default class Parser {
   this.sentences.forEach(token => {
       if (token.type === 'WORD') { this.tempArray.push(token.value[0]) } 
       else if (token.type === 'DOT' || token.type === 'EXCLAMATION' || token.type === 'QUESTION') { this.createSentence(token) }
+      else throw new SentenceError()
     })
     
     return this.allSentences
@@ -30,7 +31,7 @@ export default class Parser {
     else if (token.type === 'EXCLAMATION') sentence = new ExclamationSentence(this.tempArray, this.index)
     else if (token.type === 'QUESTION') sentence = new QuestionSentence(this.tempArray, this.index)
     else throw new SentenceError()
-    
+
     this.pushSentence(sentence)
   }
 
