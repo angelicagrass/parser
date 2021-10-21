@@ -1,4 +1,4 @@
-# Mall för inlämning laboration 1, 1dv610
+# Mall för inlämning laboration 2, 1dv610
 
 ## Checklista
   - [x] Jag har skrivit all kod och reflektioner själv. Jag har inte använt mig av andras kod för att lösa uppgiften.
@@ -28,21 +28,19 @@
 Förtydligande: Examinator kommer sätta betyg oberoende på vad ni anser. Att ha "saker" från högre betygsnivåer verkar positivt och kan väga upp brister i inlämningen.
 
 ## Komponenter och återanvändning
- * Länka in URL om du använder olika repositorier för dina olika komponenter. 
- * Beskriv komponenterna och hur de skall användas.
- * Beskriv hur du anpassat din kod och instruktioner för att någon annan programmerare skall kunna använda dina komponenter. Om du skrivit instruktioner för din användare länka till dessa. Om inte beskriv här hur någon skall göra. 
- * Beskriv hur du säkerhetställt att beroendena mellan komponenterna är som beskrivs i laborationen. 
+ * Beskrivning hur man kan använda min kod: [Länk till README](readme.md) 
+ * Beskriv hur du säkerhetställt att beroendena mellan komponenterna är som beskrivs i laborationen: Jag har laggt prettyPrinter i en egen komponent. Prettyprinter är beroende av parsern men parsern är inte beroende av prettyPrinter.  Parsern är beroende av tokenizer som är ett installerat npm paket.
 
 ## Beskrivning av min kod
-Beskriv din kod på en hög abstraktionsnivå. En kort beskrivning av dina viktigaste klasser och metoder i dina komponenter. Skapa gärna ett klassdiagram som bild. Beskriv relationerna mellan klasserna mellan komponenter.
+I min parser skickar man in en text som styckar upp texten beroende på vilket avslut meningen har. Prettyprinter skriver sedan ut meningarna i olika färger beroende på om meningen avslutas men punkt, frågetecken eller utropstecken.
 
 ## Hur jag testat
-Beskriv hur du kommit fram till om din kod fungerar. Beskriv de olika delarna och hur de testats. Screenshots från manuell testning.
+Jag har testat med jest. Hade velat få in lite fler testfall och även testat att köra tester på 100% av min kod men nu blir tiden knapp såhär på slutet så jag känner att jag har testat det viktigaste men är medveten om att testerna inte täcker 100% av den kod jag skrivit. ser fram emot att lära mig mer om testning under testningskursen som kommer framöver då just test och felhantering är mina svagaste sidor skulle jag tro.
 
 ### Testfall  
 Jag har i de automatiska testerna valt att även denna gången testa med Jest. Jag testar även min kod regelbundet med hjälp av spårutskrifter för att se att allt fungerar.  
   
-![Liten klass två](./img/bild11.png)    
+![testfall1](./img/bild11.png)    
   
 För pretty printer har jag valt att testa denna manuellt då det var smidigast för just detta testfallet för att se att färgerna skriva ut rätt.
 
@@ -55,7 +53,7 @@ Varje utrop som avslutas med utropstecken ska skrivas ut i rosa färg.
 **Resutat:** 
 
   
-![Liten klass två](./img/bild10.png)      
+![testfall2](./img/bild10.png)      
   
 
 ## Kapitelreflektioner för kapitel 2-11
