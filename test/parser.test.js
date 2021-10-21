@@ -12,11 +12,6 @@ import QuestionSentence from '../src/sentences/questionSentence.js'
 
 describe('Tests for parser', () => {
 
-  beforeEach(() => {
-    // const document = new Document()
-
-  })
-
   it('TC1 - Test parser string length', () => {
     const text = 'Hello! Little? Friend.'
     const TheTokenizer = new Tokenizer(regex, text )
@@ -79,19 +74,6 @@ describe('Tests for parser', () => {
     document.getExclamationSentences()
     document.allSentences.forEach(sentence => {
       expect(sentence instanceof ExclamationSentence).toEqual(true)
-    })
-  })
-
-
-  it('TC7 - Test instance of questionsentence', () => {
-    const text = 'Here we are again? And again?'
-    const TheTokenizer = new Tokenizer(regex, text )
-    const sentences = TheTokenizer.tokenizeTheString()
-    const parser = new Parser(sentences).parse()
-    let document = new Document(parser)
-    document.getQuestionSentences()
-    document.allSentences.forEach(sentence => {
-      expect(sentence instanceof QuestionSentence).toEqual(true)
     })
   })
 
